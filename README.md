@@ -3,7 +3,7 @@
 ### 中文描述
 
 **功能摘要：**
-新添加了 `SKILL_2.md` 技能模块。该模块专为 Windows 系统设计，提供了 **“C 盘空间清理”** 与 **“应用彻底卸载”** 两大核心工作模式。模块核心围绕“宁可不删，不可错删”的红线原则展开，通过硬核的安全约束与动态扫描机制，实现工业级、零残留的系统瘦身与无痕卸载。
+该模块专为 Windows 系统设计，提供了 **“C 盘空间清理”** 与 **“应用彻底卸载”** 两大核心工作模式。模块核心围绕“宁可不删，不可错删”的红线原则展开，通过硬核的安全约束与动态扫描机制，实现工业级、零残留的系统瘦身与无痕卸载。
 
 **核心特性：**
 1. **⚖️ 举证倒置原则（默认受保护）**：Agent 不携带任何预设的清理路径清单。默认一切目录均受保护，Agent 必须通过高标准的“内容抽样验证”来证明某个目录可以安全删除，凡有疑问，一律不删。
@@ -18,7 +18,7 @@
 ### English Description
 
 **Feature Summary:**
-Newly added the `SKILL_2.md` skill module. Designed specifically for Windows systems, this module provides two core operational modes: **"C Drive Cleanup"** and **"Deep App Uninstallation"**. Bound strictly by the core principle "Better to leave ten cluttered directories than mistakenly delete a single user file," it utilizes ironclad safety constraints and dynamic scanning mechanisms to achieve industrial-grade, zero-residual system slimming and trace-wiping.
+Designed specifically for Windows systems, this module provides two core operational modes: **"C Drive Cleanup"** and **"Deep App Uninstallation"**. Bound strictly by the core principle "Better to leave ten cluttered directories than mistakenly delete a single user file," it utilizes ironclad safety constraints and dynamic scanning mechanisms to achieve industrial-grade, zero-residual system slimming and trace-wiping.
 
 **Key Features:**
 1. **⚖️ Reverse-Onus Principle (Protected by Default)**: The agent carries no rigid pre-defined cleanup path lists. All directories are protected by default; the agent must verify and prove a folder is safe to delete via file-content sampling, otherwise it will be skipped.
