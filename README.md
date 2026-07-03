@@ -3,7 +3,7 @@
 **A general-purpose module for industrial-grade, zero-residual Windows system slimming and trace-wiping uninstallation.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yarran-eng/Windows-Cleanup/releases)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/yarran-eng/Windows-Cleanup/releases)
 
 ---
 
