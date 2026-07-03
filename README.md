@@ -1,6 +1,6 @@
 # Windows Cleanup — Safe C Drive Space Release & Deep App Uninstall
 
-**A ZCode skill for industrial-grade, zero-residual Windows system slimming and trace-wiping uninstallation.**
+**A general-purpose module for industrial-grade, zero-residual Windows system slimming and trace-wiping uninstallation.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yarran-eng/Windows-Cleanup/releases)
@@ -87,10 +87,10 @@ Completion is verified by an automated terminal validation script, with a formal
 
 ## Installation
 
-This is a ZCode skill. Place `SKILL.md` in your skills directory or install via the skill registry.
+Copy `SKILL.md` to your AI agent's skills or prompts directory:
 
 ```bash
-# Manual installation
+# Example: manual installation
 cp SKILL.md ~/.agents/skills/windows-cleanup/
 ```
 
@@ -98,13 +98,8 @@ cp SKILL.md ~/.agents/skills/windows-cleanup/
 
 ## Usage
 
-From within a ZCode session:
+Load the skill into your AI agent session and describe your need:
 
-```
-/Windows-Cleanup
-```
-
-Or describe your need directly:
 - *"Clean up my C drive"*
 - *"Completely uninstall VS Code"*
 - *"Free up disk space on my computer"*
