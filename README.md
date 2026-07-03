@@ -1,29 +1,130 @@
-## 🚀 Windows C 盘安全清理与应用彻底卸载专家
+# Windows Cleanup — Safe C Drive Space Release & Deep App Uninstall
 
-### 中文描述
+**A ZCode skill for industrial-grade, zero-residual Windows system slimming and trace-wiping uninstallation.**
 
-**功能摘要：**
-该模块专为 Windows 系统设计，提供了 **“C 盘空间清理”** 与 **“应用彻底卸载”** 两大核心工作模式。模块核心围绕“宁可不删，不可错删”的红线原则展开，通过硬核的安全约束与动态扫描机制，实现工业级、零残留的系统瘦身与无痕卸载。
-
-**核心特性：**
-1. **⚖️ 举证倒置原则（默认受保护）**：Agent 不携带任何预设的清理路径清单。默认一切目录均受保护，Agent 必须通过高标准的“内容抽样验证”来证明某个目录可以安全删除，凡有疑问，一律不删。
-2. **🥷 严苛的“零残留”机制**：在扫描和清理的全过程中，绝对不在用户磁盘上留下任何新文件（严格禁止生成 `.ps1`、`.bat`、`.cmd`、`.log` 等临时文件）。所有复杂逻辑均通过内存内联命令链执行，并在结束后执行残留检查。
-3. **🔍 智能磁盘扫描与 9 大类深度判定**：Agent 采用纯粹的信息收集策略，逐层深入扫描磁盘结构并按大小排序。精准匹配临时文件、包管理器缓存、更新残留、崩溃转储、渲染着色器、浏览器（含 AI/ML 模型缓存）、IDE 缓存等 9 大类缓存规则。
-4. **🛡️ 厂商与用户数据红线保护**：引入了基于路径结构的底层防护，对微软（AppData）、谷歌（Chrome）、社交应用（微信等聊天记录）、虚拟机/模拟器、云同步客户端及 IDE 的核心用户配置、登录状态、数据库实施绝对保护。
-5. **🛑 三重确认工作流**：所有清理操作必须严格走完“扫描归类与候选清单生成 -> 10项核心指标 AI 自我审查（交叉校验保护规则与活跃进程） -> 用户最终确认”的三步卡口，绝不盲目执行。
-6. **🧹 跨 8 维度彻底卸载与终检**：在应用卸载模式下，不仅清除磁盘残留，还会跨文件系统、注册表、AppX 包、Prefetch、防火墙规则、系统服务、计划任务及沙箱账户等 8 个维度清除一切痕迹。清理完成后运行自动化扫描脚本，进行终检验证并输出交付报告。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yarran-eng/Windows-Cleanup/releases)
 
 ---
 
-### English Description
+## Overview
 
-**Feature Summary:**
-Designed specifically for Windows systems, this module provides two core operational modes: **"C Drive Cleanup"** and **"Deep App Uninstallation"**. Bound strictly by the core principle "Better to leave ten cluttered directories than mistakenly delete a single user file," it utilizes ironclad safety constraints and dynamic scanning mechanisms to achieve industrial-grade, zero-residual system slimming and trace-wiping.
+Designed specifically for Windows systems, this module provides two core operational modes:
 
-**Key Features:**
-1. **⚖️ Reverse-Onus Principle (Protected by Default)**: The agent carries no rigid pre-defined cleanup path lists. All directories are protected by default; the agent must verify and prove a folder is safe to delete via file-content sampling, otherwise it will be skipped.
-2. **🥷 Hardcore Zero-Residual Mechanism**: Throughout the scanning and cleanup process, the creation of any temporary script or log files (such as `.ps1`, `.bat`, `.cmd`, `.log`) on the user's disk is strictly prohibited. All complex operations are executed safely via in-memory inline command chains with post-cleanup residual verification.
-3. **🔍 Smart Disk Scanning & 9-Category Deep Classification**: The agent adopts a pure information gathering strategy, expanding and sorting subdirectories layer-by-layer based on size. It accurately identifies and matches 9 specific cache types, including temporary files, package manager caches, updater residuals, crash dumps, GPU shaders, browser/AI model caches, and IDE caches.
-4. **🛡️ Robust Vendor & User Data Protection**: Implemented structural path protection rules that enforce an absolute ban on deleting crucial user profiles, login states, and databases belonging to Microsoft (AppData), Google (Chrome), social apps, virtual machines/emulators, cloud sync clients, and IDEs.
-5. **🛑 Triple-Confirmation Workflow**: Before any deletion, the agent must strictly pass through a three-stage gateway: "Scan & Structured Candidate List Generation -> AI Self-Audit across 10 core indicators (cross-checking protection rules and active processes) -> Final User Confirmation". No blind operations are tolerated.
-6. **🧹 8-Dimensional Deep Uninstallation & Final Verification**: In uninstallation mode, the agent wipes application traces across 8 distinct dimensions (File System, Registry, AppX, Prefetch, Firewall Rules, Windows Services, Scheduled Tasks, and Sandbox Accounts), backed by an automated terminal validation script to confirm zero residuals and output formal deliverables upon completion.
+| Mode | Trigger | Goal |
+|------|---------|------|
+| **C Drive Cleanup** | "Clean C drive / free up space / disk full" | Safely release disk space following 9 cache/temp file categories |
+| **Deep App Uninstall** | "Completely uninstall / remove all traces of an application" | Zero residue across 8 dimensions |
+
+Bound strictly by the core principle **"Better to leave ten cluttered directories than mistakenly delete a single user file,"** it utilizes ironclad safety constraints and dynamic scanning mechanisms.
+
+---
+
+## Key Features
+
+### 1. ⚖️ Reverse-Onus Principle (Protected by Default)
+The agent carries no rigid pre-defined cleanup path list. **All directories are protected by default.** The agent must prove — through file-content sampling — that a directory is safe to delete. If in doubt, it is skipped. No exceptions.
+
+### 2. 🥷 Hardcore Zero-Residual Mechanism
+Throughout the entire scanning and cleanup process, the creation of **any** temporary files on disk is strictly prohibited:
+- ❌ No `.ps1` scripts
+- ❌ No `.bat` / `.cmd` batch files  
+- ❌ No `.txt` / `.log` temporary logs
+- ❌ No `.csv` / `.json` data exports
+
+All complex operations are executed via in-memory inline command chains, with post-cleanup residual verification.
+
+### 3. 🔍 Smart Disk Scanning & 9-Category Deep Classification
+The agent adopts a pure information-gathering strategy — expanding and sorting subdirectories layer-by-layer by size. It accurately identifies and matches **9 specific cache types**:
+
+| # | Category | Safety |
+|---|----------|--------|
+| 1 | Temporary Files | High |
+| 2 | Package Manager Download Cache | High |
+| 3 | Application Updater Residuals | Medium-High |
+| 4 | Crash Dump Files | High |
+| 5 | Runtime & Environment Cache | Medium-High |
+| 5.1 | Browser AI/ML Model Cache | Medium-High |
+| 6 | GPU Shader/Render Cache | High |
+| 7 | Browser Cache | Medium |
+| 8 | General Application Cache | Low-Medium |
+| 9 | IDE & Development Tool Cache | Medium |
+
+### 4. 🛡️ Robust Vendor & User Data Protection
+Structural path-based protection rules enforce an absolute prohibition on touching:
+- **Microsoft AppData** (Local & Roaming)
+- **Google Chrome** user profiles
+- **Communication/social apps** (chat histories, contacts)
+- **Virtual machines & emulators**
+- **Cloud sync clients**
+- **IDE** user configurations, settings, and extensions
+- **Browser** login data, bookmarks, cookies, history
+
+### 5. 🛑 Triple-Confirmation Workflow
+All deletions must pass through three strict gates:
+
+1. **Scan & Structured Candidate List Generation** — discover, classify, and present findings
+2. **AI Self-Audit** — cross-check against 10 core indicators (protection rules, active processes, content verification, size anomalies, recoverability, etc.)
+3. **Final User Confirmation** — nothing is deleted without explicit consent
+
+### 6. 🧹 8-Dimensional Deep Uninstallation & Final Verification
+In uninstall mode, the agent wipes application traces across **8 distinct dimensions**:
+
+| Dimension | Scope |
+|-----------|-------|
+| File System | Installation dirs, AppData, hidden configs, Documents, shortcuts |
+| Registry | HKCU/HKLM Uninstall keys, ProfileList entries |
+| AppX Packages | Current-user, all-users, provisioned packages |
+| Prefetch | Windows prefetch files |
+| Firewall Rules | Inbound & outbound rules |
+| Windows Services | Registered services |
+| Scheduled Tasks | Background tasks |
+| Sandbox Accounts | Isolated user accounts & profiles |
+
+Completion is verified by an automated terminal validation script, with a formal deliverable report.
+
+---
+
+## Installation
+
+This is a ZCode skill. Place `SKILL.md` in your skills directory or install via the skill registry.
+
+```bash
+# Manual installation
+cp SKILL.md ~/.agents/skills/windows-cleanup/
+```
+
+---
+
+## Usage
+
+From within a ZCode session:
+
+```
+/Windows-Cleanup
+```
+
+Or describe your need directly:
+- *"Clean up my C drive"*
+- *"Completely uninstall VS Code"*
+- *"Free up disk space on my computer"*
+
+The agent will scan, classify, present candidates, self-audit, and wait for your confirmation before executing any deletions.
+
+---
+
+## Safety Philosophy
+
+> **"Better to leave ten cluttered directories than mistakenly delete a single user file."**
+
+- Everything is protected until proven safe
+- Directory names alone are never sufficient — content must be sampled
+- Any uncertainty defaults to "do not delete"
+- No script files ever touch your disk
+- No registry modifications outside of explicit uninstall scope
+
+---
+
+## License
+
+MIT © [yarran-eng](https://github.com/yarran-eng)
